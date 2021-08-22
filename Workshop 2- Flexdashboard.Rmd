@@ -1,0 +1,28 @@
+---
+title: "Review Dashboard"
+output: 
+  flexdashboard::flex_dashboard
+    orientation: columns
+---
+
+```{r include = FALSE}
+library(viridis)
+library(ggplot2)
+library(marmap)
+```
+
+# Intro {.sidebar}
+
+This dashboard covers several topics:
+
+* The marmap package
+* The viridis package
+* Miscellaneous material
+
+# Marmap Package
+
+## Column 1
+
+### Florida
+
+

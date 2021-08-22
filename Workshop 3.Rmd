@@ -1,0 +1,47 @@
+---
+title: "Workshop 3"
+author: "Chiu Yee Lim 4663994"
+date: "22/08/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Workshop 3
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(skimr)
+
+survey <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-05-18/survey.csv')
+
+survey%>%head() #head funtion look at first 6 lines
+
+survey%>%skim()
+
+survey%>%filter(how_old_are_you=="25-34")
+
+survey%>%filter(how_old_are_you=="25-34" & annual_salary>80000)
+
+survey%>%filter(industry=="Computer or Tec" | annual_salary>80000)
+
+survey%>%top_n(10, annual_salary)
+
+survey%>%arrange(annual_salary)
+
+survey%>%select(how_old_are_you, industry, annual_salary)
+
+survey%>%select(how_old_are_you, industry, annual_salary)%>%filter(how_old_are_you=="25-34" & annual_salary>80000)
+
+survey_new<-survey%>%mutate(age=parse_number(how_old_are_you))
+
+survey_new%>%group_by(industry)%>%summarise(mean_age=mean(age))
+
+survey%>%count(country)
+```
+
+
+
